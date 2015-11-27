@@ -15,6 +15,7 @@ public class TestScript : MonoBehaviour {
     // Update is called once per frame
     void Update ()
     {
+        /*
         if (Input.GetButtonDown("Fire1"))
         {
             Debug.Log("Firing");
@@ -22,5 +23,6 @@ public class TestScript : MonoBehaviour {
             Rigidbody instanciateProjectile = Instantiate(projectile, transform.position, transform.rotation) as Rigidbody;
             instanciateProjectile.velocity = transform.TransformDirection(new Vector3(0,0,speed));
         }
+        */
     }
 }

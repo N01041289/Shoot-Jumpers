@@ -2,17 +2,18 @@
 using System.Collections;
 
 public class LaserScript : MonoBehaviour {
-
-    LineRenderer line;
-    public int laserDamage = 50;
+    Light light;
+    LineRenderer line;  
+    public int laserDamage = 5;
     bool cursorShouldBeLocked = true;
 
-    // Use this for initialization
     void Start ()
     {
         Debug.Log("Lazer Script Online");
         line = gameObject.GetComponent<LineRenderer>();
+        light = gameObject.GetComponent<Light>();
         line.enabled = false;
+        light.enabled = false;
 	}
 	
 	// Update is called once per frame
@@ -37,10 +38,11 @@ public class LaserScript : MonoBehaviour {
 	}
     IEnumerator FireLaser()
     {
-        line.enabled = true;
-
         while (Input.GetButton("Fire1"))
         {
+            light.enabled = true;
+            line.enabled = true;
+
             line.material.mainTextureOffset = new Vector2(0, Time.time);
 
             Ray ray = new Ray(transform.position, transform.forward);
@@ -53,16 +55,20 @@ public class LaserScript : MonoBehaviour {
                 line.SetPosition(1, hit.point);
                 if (hit.rigidbody)
                 {
-                    hit.rigidbody.AddForceAtPosition(transform.forward * laserDamage, hit.point);
+                        hit.rigidbody.AddForceAtPosition(transform.forward * laserDamage, hit.point);
                 }
             }
             else
             { 
                 line.SetPosition(1, ray.GetPoint(100));
             }
+
             yield return null;
+
+            line.enabled = false;
+            light.enabled = false;
         }
 
-        line.enabled = false;
+
     }
 }
