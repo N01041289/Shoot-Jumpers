@@ -71,6 +71,7 @@ public class LaserPainter : MonoBehaviour
                     for (int j = 0; j < launcherCol; j++)
                     {
                         instanciateProjectileRocket = Instantiate(rocket, rocketHolder, transform.rotation) as Rigidbody;
+                        instanciateProjectileRocket.GetComponent<Rigidbody>().AddForce(Random.insideUnitSphere * 50.0f);
                         Destroy(instanciateProjectileRocket.gameObject, 10f);
                         //instanciateProjectileRocket.velocity = transform.TransformDirection(new Vector3(rocketBallX, rocketBallY, rocketBallZ));
                     }

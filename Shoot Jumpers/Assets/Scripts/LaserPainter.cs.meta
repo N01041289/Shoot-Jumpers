@@ -1,12 +1,10 @@
 fileFormatVersion: 2
 guid: 806db55bffa899644a6a30da1bdfba9e
-timeCreated: 1448173657
+timeCreated: 1449274356
 licenseType: Free
 MonoImporter:
   serializedVersion: 2
-  defaultReferences:
-  - rocketBall: {fileID: 5466412, guid: e335d99f042cfe34290423bcf4b4bcef, type: 2}
-  - rocket: {fileID: 5408186, guid: ff9afde638d1d7643938250c29e9a73a, type: 2}
+  defaultReferences: []
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
